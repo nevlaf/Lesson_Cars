@@ -11,7 +11,7 @@ namespace Lesson_Cars.Controller
     {
         public void Wash(Car car)
         {
-            car.isDirty = false;
+            car.IsDirty = false;
         }
     }
 }

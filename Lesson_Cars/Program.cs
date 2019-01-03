@@ -17,16 +17,12 @@ namespace Lesson_Cars
             try
             {
                 Car car = new Car();
-                car.Mileage = -100;
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message + Environment.NewLine + ex.StackTrace);
-            }
-
-
+            }            
             Console.ReadKey();
-
         }
     }
 }

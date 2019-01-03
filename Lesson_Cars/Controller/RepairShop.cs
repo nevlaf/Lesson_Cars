@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lesson_Cars.Exceptions;
 
 namespace Lesson_Cars.Controller
 {
@@ -11,7 +12,8 @@ namespace Lesson_Cars.Controller
     {
         public void Repair(Car car)
         {
-           car.IsBreak = false;
+            if (car.IsDirty == true) throw new WastePathException();
+            car.IsBreak = false;
         }
     }
 }

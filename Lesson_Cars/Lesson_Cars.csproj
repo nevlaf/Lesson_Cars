@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\BreakCarException.cs" />
     <Compile Include="Exceptions\DirtyException.cs" />
     <Compile Include="Exceptions\WastePathException.cs" />
     <Compile Include="Model\Car.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controller\RepairShop.cs" />
+    <Compile Include="View\View.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -9,45 +9,64 @@ namespace Lesson_Cars.Model
 {
     public class Car
     {
-        public string name;
-        public bool isDirty;
-        public bool IsBreak;
-        private double mileage;
-        public int repair_number = 0;
+        string name;
+        bool isDirty;
+        bool isBreak;
+        double mileage;
+        
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }        
+
+        public bool IsDirty
+        {
+            get { return isDirty; }
+            set { isDirty = value; }
+        }
+
+        public bool IsBreak
+        {
+            get { return isBreak; }
+            set { isBreak = value; }
+        }
 
         public double Mileage
         {
             get { return mileage; }
-            set
-            {
-                if (value <= 0) throw new WastePathException();
+            private set { }
+        }
 
-                if (isDirty == false && IsBreak == false && value > 0)
-                {
-                    mileage += value;
-                }
-               
-                if (mileage >= 1000 && repair_number < 1)
-                {
-                    IsBreak = true;
-                    repair_number += 1;
-                    mileage = 1000;
-                    Console.WriteLine("Машина сломалась! (1000)");
-                }
-                else if (mileage >= 2000 && repair_number < 2)
-                {
-                    IsBreak = true;
-                    repair_number += 1;
-                    mileage = 2000;
-                    Console.WriteLine("Машина сломалась! (2000)");
-                }
-                else if (mileage >= 5000 && repair_number < 3)
-                {
-                    IsBreak = true;
-                    repair_number += 1;
-                    mileage = 5000;
-                    Console.WriteLine("Машина сломалась! (5000)");
-                }
+        public void Travel(double path)
+        {
+            double prediction;
+            prediction = mileage + path;
+            if (path <= 0) throw new WastePathException();
+            if (isBreak == true) throw new BreakCarException();
+            if (prediction >= 1000 && mileage >= 0 && mileage < 1000)
+            {
+                mileage = 1000;
+                isBreak = true;
+                isDirty = true;
+            }
+            else if (prediction >= 2000 && mileage >= 1000 && mileage <= 2000)
+            {
+                mileage = 2000;
+                isBreak = true;
+                isDirty = true;
+            }
+            else if (prediction >= 5000 && mileage >= 2000 && mileage <= 5000)
+            {
+                mileage = 5000;
+                isBreak = true;
+                isDirty = true;
+
+            }
+            else
+            {
+                mileage += path;
+                isDirty = true;
             }
         }
 
