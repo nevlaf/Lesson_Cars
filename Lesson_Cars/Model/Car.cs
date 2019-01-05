@@ -50,13 +50,13 @@ namespace Lesson_Cars.Model
                 isBreak = true;
                 isDirty = true;
             }
-            else if (prediction >= 2000 && mileage >= 1000 && mileage <= 2000)
+            else if (prediction >= 2000 && mileage >= 1000 && mileage < 2000)
             {
                 mileage = 2000;
                 isBreak = true;
                 isDirty = true;
             }
-            else if (prediction >= 5000 && mileage >= 2000 && mileage <= 5000)
+            else if (prediction >= 5000 && mileage >= 2000 && mileage < 5000)
             {
                 mileage = 5000;
                 isBreak = true;

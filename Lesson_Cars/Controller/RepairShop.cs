@@ -8,11 +8,11 @@ using Lesson_Cars.Exceptions;
 
 namespace Lesson_Cars.Controller
 {
-    class RepairShop
+    public static class RepairShop
     {
-        public void Repair(Car car)
+        public static void Repair(Car car)
         {
-            if (car.IsDirty == true) throw new WastePathException();
+            if (car.IsDirty == true) throw new DirtyException();
             car.IsBreak = false;
         }
     }

@@ -49,10 +49,13 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UnitTestRepairShop.cs" />
     <Compile Include="UnitTestCars.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestCarWash.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="GenericTest1.GenericTest" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
