@@ -187,6 +187,7 @@ namespace UnitTestCars1
             #endregion
         }
 
+        [TestMethod]
         public void TestMethod_1235_isDirty_false()
         {
             #region Arrange

@@ -36,7 +36,12 @@ namespace Lesson_Cars.Model
         {
             get { return mileage; }
             private set { }
-        }
+        }        
+
+        /// <summary>
+        /// Метод прибавления пройденного пути машины
+        /// </summary>
+        /// <param name="path"></param>
 
         public void Travel(double path)
         {
@@ -68,7 +73,7 @@ namespace Lesson_Cars.Model
                 mileage += path;
                 isDirty = true;
             }
-        }
+        }   
 
     }
 }

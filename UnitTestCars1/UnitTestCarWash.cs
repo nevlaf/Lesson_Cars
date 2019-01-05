@@ -13,15 +13,16 @@ namespace UnitTestCars1
         public void TestMethod_IsDirty_false()
         {
             #region Arrange
-            Car reno = new Car();
+            Car fiat = new Car();
             #endregion
 
             #region Action
-            CarWash.Wash(reno);            
+            fiat.IsDirty = true;
+            CarWash.Wash(fiat);            
             #endregion
 
             #region Assert
-            Assert.IsFalse(reno.IsDirty);
+            Assert.IsFalse(fiat.IsDirty);
             #endregion
         }
 
@@ -41,7 +42,7 @@ namespace UnitTestCars1
         }
 
         [TestMethod]
-        public void TestMethod_999_200_not_1119()
+        public void TestMethod_IsDirty_not_true()
         {
             #region Arrange
             Car car = new Car();
@@ -54,6 +55,24 @@ namespace UnitTestCars1
 
             #region Assert
             Assert.AreNotEqual(car.IsDirty, true);
+            #endregion
+        }
+
+        [TestMethod]
+        public void TestMethod_Bill_for_Wash_20()
+        {
+            #region Arrange
+            Car car = new Car();
+            double bill;
+            #endregion
+
+            #region Action
+            car.IsDirty = true;
+            bill = CarWash.Wash(car);
+            #endregion
+
+            #region Assert
+            Assert.AreEqual(bill, 20);
             #endregion
         }
     }

@@ -10,10 +10,11 @@ namespace Lesson_Cars.Controller
 {
     public static class CarWash
     {
-        public static void Wash(Car car)
+        public static double Wash(Car car)
         {
             if (car.IsDirty == false) throw new ClearCarException();
             car.IsDirty = false;
+            return 20;
         }
     }
 }

@@ -10,10 +10,24 @@ namespace Lesson_Cars.Controller
 {
     public static class RepairShop
     {
-        public static void Repair(Car car)
+        public static double Repair(Car car)
         {
             if (car.IsDirty == true) throw new DirtyException();
-            car.IsBreak = false;
+            switch (car.Mileage)
+            {
+                case 1000:
+                    car.IsBreak = false;
+                    return 120;
+                case 2000:
+                    car.IsBreak = false;
+                    return 150;
+                case 5000:
+                    car.IsBreak = false;
+                    return 180;
+                default:
+                    throw new MissingMileageException();                    
+            }            
         }
+
     }
 }
