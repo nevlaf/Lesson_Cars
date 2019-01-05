@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lesson_Cars.Exceptions;
 
 namespace Lesson_Cars.Controller
 {
-    class CarWash
+    public static class CarWash
     {
-        public void Wash(Car car)
+        public static void Wash(Car car)
         {
+            if (car.IsDirty == false) throw new ClearCarException();
             car.IsDirty = false;
         }
     }

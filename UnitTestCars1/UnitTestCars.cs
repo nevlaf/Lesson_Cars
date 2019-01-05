@@ -234,17 +234,17 @@ namespace UnitTestCars1
             Assert.IsTrue(car.IsDirty);
             #endregion
         }
-
+        
         [TestMethod]
         [ExpectedException(typeof(DirtyException))]
         public void TestException_DirtyException()
         {
             Car fiat = new Car();
             fiat.IsDirty = true;
-            UnitTestRepairShop.Repair(fiat);
+            RepairShop.Repair(fiat);
 
         }
-
+        
         [TestMethod]
         [ExpectedException(typeof(WastePathException))]
         public void TestException_WastePathException_500()

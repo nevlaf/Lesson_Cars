@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\BreakCarException.cs" />
+    <Compile Include="Exceptions\ClearCarException.cs" />
     <Compile Include="Exceptions\DirtyException.cs" />
     <Compile Include="Exceptions\WastePathException.cs" />
     <Compile Include="Model\Car.cs" />
