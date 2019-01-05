@@ -12,17 +12,17 @@ namespace Lesson_Cars.Controller
     {
         public static double Repair(Car car)
         {
-            if (car.IsDirty == true) throw new DirtyException();
+            if (car.Look == true) throw new DirtyException();
             switch (car.Mileage)
             {
                 case 1000:
-                    car.IsBreak = false;
+                    car.State = false;
                     return 120;
                 case 2000:
-                    car.IsBreak = false;
+                    car.State = false;
                     return 150;
                 case 5000:
-                    car.IsBreak = false;
+                    car.State = false;
                     return 180;
                 default:
                     throw new MissingMileageException();                    

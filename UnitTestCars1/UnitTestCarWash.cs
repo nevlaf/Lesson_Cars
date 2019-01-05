@@ -17,12 +17,12 @@ namespace UnitTestCars1
             #endregion
 
             #region Action
-            fiat.IsDirty = true;
+            fiat.Look = true;
             CarWash.Wash(fiat);            
             #endregion
 
             #region Assert
-            Assert.IsFalse(fiat.IsDirty);
+            Assert.IsFalse(fiat.Look);
             #endregion
         }
 
@@ -35,7 +35,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Action
-            reno.IsDirty = false;
+            reno.Look = false;
             CarWash.Wash(reno);
             #endregion
 
@@ -49,12 +49,12 @@ namespace UnitTestCars1
             #endregion
 
             #region Action
-            car.IsDirty = true;
+            car.Look = true;
             CarWash.Wash(car);
             #endregion
 
             #region Assert
-            Assert.AreNotEqual(car.IsDirty, true);
+            Assert.AreNotEqual(car.Look, true);
             #endregion
         }
 
@@ -67,7 +67,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Action
-            car.IsDirty = true;
+            car.Look = true;
             bill = CarWash.Wash(car);
             #endregion
 

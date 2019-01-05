@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson_Cars
+namespace Lesson_Cars.Model
 {
-    class Driver
+    public class RegistrateNote
     {
-        public string name;
-        public double account;
+        int CarId { get; set; }
+        int DriverId { get; set; }       
     }
 }

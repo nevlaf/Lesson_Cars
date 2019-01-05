@@ -50,7 +50,7 @@ namespace UnitTestCars1
             #region Arrange
             Car car = new Car();
             car.Travel(1000);
-            car.IsBreak = false;
+            car.State = false;
             car.Travel(900);
             #endregion
 
@@ -70,9 +70,9 @@ namespace UnitTestCars1
             #region Arrange
             Car car = new Car();
             car.Travel(1100);
-            car.IsBreak = false;            
+            car.State = false;            
             car.Travel(2200);
-            car.IsBreak = false;
+            car.State = false;
             car.Travel(200);
             #endregion
 
@@ -92,9 +92,9 @@ namespace UnitTestCars1
             #region Arrange
             Car car = new Car();
             car.Travel(1100);
-            car.IsBreak = false;
+            car.State = false;
             car.Travel(2200);
-            car.IsBreak = false;
+            car.State = false;
             car.Travel(200);
             #endregion
 
@@ -104,7 +104,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Assert
-            Assert.IsTrue(car.IsBreak);
+            Assert.IsTrue(car.State);
             #endregion
         }
 
@@ -120,7 +120,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Assert
-            Assert.IsFalse(car.IsBreak);
+            Assert.IsFalse(car.State);
             #endregion
         }
 
@@ -136,7 +136,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Assert
-            Assert.IsTrue(car.IsBreak);
+            Assert.IsTrue(car.State);
             #endregion
         }
 
@@ -152,7 +152,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Assert
-            Assert.IsTrue(car.IsBreak);
+            Assert.IsTrue(car.State);
             #endregion
         }
 
@@ -168,7 +168,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Assert
-            Assert.IsTrue(car.IsBreak);
+            Assert.IsTrue(car.State);
             #endregion
         }
         [TestMethod]
@@ -183,7 +183,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Assert
-            Assert.IsTrue(car.IsDirty);
+            Assert.IsTrue(car.Look);
             #endregion
         }
 
@@ -199,7 +199,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Assert
-            Assert.IsTrue(car.IsDirty);
+            Assert.IsTrue(car.Look);
             #endregion
         }
 
@@ -216,7 +216,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Assert
-            Assert.IsTrue(car.IsBreak);
+            Assert.IsTrue(car.State);
             #endregion
         }        
 
@@ -232,7 +232,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Assert
-            Assert.IsTrue(car.IsDirty);
+            Assert.IsTrue(car.Look);
             #endregion
         }
         
@@ -241,7 +241,7 @@ namespace UnitTestCars1
         public void TestException_DirtyException()
         {
             Car fiat = new Car();
-            fiat.IsDirty = true;
+            fiat.Look = true;
             RepairShop.Repair(fiat);
 
         }
@@ -270,6 +270,24 @@ namespace UnitTestCars1
             car.Travel(1000);
             car.Travel(200);
         }
+
+        [TestMethod]
+        public void TestMethod_count_3()
+        {
+            #region Arrange
+            Car c1 = new Car();
+            Car c2 = new Car(); 
+            Car c3 = new Car();
+            #endregion
+
+            #region Action            
+            #endregion
+
+            #region Assert
+            Assert.AreEqual(c3.Count, 3);
+            #endregion
+        }
+
 
     }
 }

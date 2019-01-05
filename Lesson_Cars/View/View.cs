@@ -17,8 +17,8 @@ namespace Lesson_Cars.View
         public void GetInfCar(Car car)
         {
             Console.WriteLine("Пробег = " + car.Mileage);
-            Console.WriteLine("Требуется мойка = " + car.IsDirty);
-            Console.WriteLine("Требуется ремонт = " + car.IsBreak);
+            Console.WriteLine("Требуется мойка = " + car.Look);
+            Console.WriteLine("Требуется ремонт = " + car.State);
 
         }
         public void Output(int x)

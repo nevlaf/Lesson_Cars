@@ -12,8 +12,8 @@ namespace Lesson_Cars.Controller
     {
         public static double Wash(Car car)
         {
-            if (car.IsDirty == false) throw new ClearCarException();
-            car.IsDirty = false;
+            if (car.Look == false) throw new ClearCarException();
+            car.Look = false;
             return 20;
         }
     }

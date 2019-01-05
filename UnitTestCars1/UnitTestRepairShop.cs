@@ -15,7 +15,7 @@ namespace UnitTestCars1
             #region Arrange
             Car reno = new Car();
             reno.Travel(1000);
-            reno.IsDirty = false;
+            reno.Look = false;
             #endregion
 
             #region Action
@@ -23,7 +23,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Assert
-            Assert.IsFalse(reno.IsBreak);
+            Assert.IsFalse(reno.State);
             #endregion
         }
 
@@ -35,7 +35,7 @@ namespace UnitTestCars1
             double bill;
             Car reno = new Car();
             reno.Travel(1000);
-            reno.IsDirty = false;
+            reno.Look = false;
             #endregion
 
             #region Action
@@ -53,10 +53,10 @@ namespace UnitTestCars1
             #region Arrange
             Car reno = new Car();
             reno.Travel(1000);
-            reno.IsDirty = false;
-            reno.IsBreak = false;
+            reno.Look = false;
+            reno.State = false;
             reno.Travel(1000);
-            reno.IsDirty = false;
+            reno.Look = false;
             #endregion
 
             #region Action
@@ -64,7 +64,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Assert
-            Assert.IsFalse(reno.IsBreak);
+            Assert.IsFalse(reno.State);
             #endregion
         }
 
@@ -76,10 +76,10 @@ namespace UnitTestCars1
             double bill;
             Car reno = new Car();
             reno.Travel(1000);
-            reno.IsDirty = false;
-            reno.IsBreak = false;
+            reno.Look = false;
+            reno.State = false;
             reno.Travel(1000);
-            reno.IsDirty = false;
+            reno.Look = false;
             #endregion
 
             #region Action
@@ -97,13 +97,13 @@ namespace UnitTestCars1
             #region Arrange
             Car reno = new Car();
             reno.Travel(1000);
-            reno.IsDirty = false;
-            reno.IsBreak = false;
+            reno.Look = false;
+            reno.State = false;
             reno.Travel(1000);
-            reno.IsDirty = false;
-            reno.IsBreak = false;
+            reno.Look = false;
+            reno.State = false;
             reno.Travel(3000);
-            reno.IsDirty = false;
+            reno.Look = false;
             #endregion
 
             #region Action
@@ -111,7 +111,7 @@ namespace UnitTestCars1
             #endregion
 
             #region Assert
-            Assert.IsFalse(reno.IsBreak);
+            Assert.IsFalse(reno.State);
             #endregion
         }
 
@@ -122,13 +122,13 @@ namespace UnitTestCars1
             double bill;
             Car reno = new Car();
             reno.Travel(1000);
-            reno.IsDirty = false;
-            reno.IsBreak = false;
+            reno.Look = false;
+            reno.State = false;
             reno.Travel(1000);
-            reno.IsDirty = false;
-            reno.IsBreak = false;
+            reno.Look = false;
+            reno.State = false;
             reno.Travel(3000);
-            reno.IsDirty = false;
+            reno.Look = false;
             #endregion
 
             #region Action
@@ -139,6 +139,7 @@ namespace UnitTestCars1
             Assert.AreEqual(bill, 180);
             #endregion
         }
+
         [TestMethod]
         [ExpectedException(typeof(DirtyException))]
         public void TestException_DirtyException()
@@ -148,7 +149,28 @@ namespace UnitTestCars1
             #endregion
 
             #region Action
-            reno.IsDirty = true;
+            reno.Look = true;
+            RepairShop.Repair(reno);
+            #endregion
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(MissingMileageException))]
+        public void TestException_MissingMileageException()
+        {
+            #region Arrange
+            Car reno = new Car();
+            reno.Travel(1000);
+            reno.Look = false;
+            reno.State = false;
+            reno.Travel(1000);
+            reno.Look = false;
+            reno.State = false;
+            reno.Travel(2900);
+            reno.Look = false;
+            #endregion
+
+            #region Action
             RepairShop.Repair(reno);
             #endregion
         }

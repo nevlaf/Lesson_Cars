@@ -9,34 +9,50 @@ namespace Lesson_Cars.Model
 {
     public class Car
     {
-        string name;
-        bool isDirty;
-        bool isBreak;
-        double mileage;
+        private bool isDirty;
+        private bool isWork;
+        private double mileage;
+        private int Id;
+        private static int count;
         
-        public string Name
+        public Car()
         {
-            get { return name; }
-            set { name = value; }
-        }        
+            isDirty = false;
+            isWork = true;
+            Id = ++count;
+            mileage = 0;
+        }             
 
-        public bool IsDirty
+        public bool Look
         {
             get { return isDirty; }
             set { isDirty = value; }
         }
 
-        public bool IsBreak
+        public bool State
         {
-            get { return isBreak; }
-            set { isBreak = value; }
+            get { return isWork; }
+            set { isWork = value; }
         }
 
         public double Mileage
         {
             get { return mileage; }
             private set { }
-        }        
+        }
+
+        public double Count
+        {
+            get { return count; }
+            private set { }
+        }
+
+        public override string ToString()
+        {
+            string working = isWork ? "работает" : "не работает";
+            string look = isDirty ? "грязная" : "чистая";
+            return string.Format("car id {0} ({1} {2}) summary count {3}", Id, working, look, count);
+        }
 
         /// <summary>
         /// Метод прибавления пройденного пути машины
@@ -48,23 +64,23 @@ namespace Lesson_Cars.Model
             double prediction;
             prediction = mileage + path;
             if (path <= 0) throw new WastePathException();
-            if (isBreak == true) throw new BreakCarException();
+            if (isWork == true) throw new BreakCarException();
             if (prediction >= 1000 && mileage >= 0 && mileage < 1000)
             {
                 mileage = 1000;
-                isBreak = true;
+                isWork = true;
                 isDirty = true;
             }
             else if (prediction >= 2000 && mileage >= 1000 && mileage < 2000)
             {
                 mileage = 2000;
-                isBreak = true;
+                isWork = true;
                 isDirty = true;
             }
             else if (prediction >= 5000 && mileage >= 2000 && mileage < 5000)
             {
                 mileage = 5000;
-                isBreak = true;
+                isWork = true;
                 isDirty = true;
 
             }
